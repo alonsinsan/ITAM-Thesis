@@ -1,0 +1,35 @@
+% No borren este código. Es importante para que las referencias se vean como se debe
+
+\documentclass{article}
+
+\makeatletter
+\renewenvironment{thebibliography}[1]
+     {\section*{\refname}%
+      \@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}%
+      \list{}%
+           {\setlength{\labelwidth}{0pt}%
+            \setlength{\labelsep}{0pt}%
+            \setlength{\leftmargin}{\parindent}%
+            \setlength{\itemindent}{-\parindent}%
+            \@openbib@code
+            \usecounter{enumiv}}%
+      \sloppy
+      \clubpenalty4000
+      \@clubpenalty \clubpenalty
+      \widowpenalty4000%
+      \sfcode`\.\@m}
+     {\def\@noitemerr
+       {\@latex@warning{Empty `thebibliography' environment}}%
+      \endlist}
+\makeatother
+
+\begin{document}
+
+\begin{thebibliography}{111}
+\raggedright
+
+\bibitem{abc} Anscombe, E. 1981/1971. ``Causality and Determination,'' in \emph{Metaphysics and the Philosophy of Mind: Collected Philosophical Papers of G.E.M.\ Anscombe}. Minneapolis: University of Minnesota Press. 133--47.
+
+\end{thebibliography}
+
+\end{document}
