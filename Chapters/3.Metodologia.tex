@@ -1,0 +1,32 @@
+\chapter{Metodología}
+
+\noindent Dada la naturaleza de los Componentes Principales obtenidos, sabemos que en la primera componente principal se acumula la mayor varianza; en el 2o Componente Principal la segunda mayor varianza y así sucesivamente con las demás COmponentes hasta llegar a $m$ que es igual al número de variables en nuestro conjunto de datos. La metodología busca aprovechar esta característica para la división de grupos dividiendo en cuartiles sobre cada Componente Principal y obteniendo muestras aleatorias de cada uno de estos nuevos conjuntos. Escogiendo los grupos de Control y Experimental de esta forma, la mediana y los cuartiles serán parecidos entre ellos.
+Se hace una prueba de hipótesis para comparar las medias de estas poblaciones y encontramos cuál es la región de rechazo.
+\section{Paso a paso}
+\begin{enumerate}
+    \item Validar correlación de variables y eliminar variables correlacionadas.
+    \item Obtener primeras dos componentes principales con los respectivos eigenvalores.
+    \item Varianza acumulada en primeras dos componentes
+    \item Transformar variables al nuevo espacio $\mathbb{R}^2$ con los ejes igual a las componentes principales.
+    \item Obtener cuartiles de la distribución conjunta de los datos en el nuevo sistema de coordenadas.
+    \item Para cada cuartil, tomar una muestra aleatoria de índices dentro del cuartil con proporción 80-20. (80\% grupo de control-20\% grupo experimental)
+    \item Unir los grupos obtenidos en cada cuartil para tener el grupo completo experimental y el grupo completo de control.
+    \item Prueba de hipótesis de comparación de rango intercuartílico.
+\end{enumerate}
+\section{Código}
+\begin{itemize}
+    \item INPUT: 
+    \begin{itemize}
+        \item Archivo csv con las variables a explorar. Columna con ID's.
+        \item Input script:
+        \begin{itemize}
+            \item nombre\_indice: nombre de la columna que es índice.
+        \end{itemize}
+    \end{itemize}
+    \item Funciones
+    \lstinputlisting[language=Python, caption=Transformación PCA]{Code/transform_pca.py}
+    \lstinputlisting[language=Python, caption=Creación de cuantiles y etiquetado]{Code/make_groups.py}
+    \lstinputlisting[language=Python, caption=División iterando en cada cuartil]{Code/iterate_division.py}
+    \lstinputlisting[language=Python, caption=Main]{Code/main.py}
+    
+\end{itemize}

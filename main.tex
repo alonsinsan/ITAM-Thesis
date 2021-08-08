@@ -42,7 +42,7 @@
 \usepackage{graphicx}
 \usepackage{adjustbox}
 \usepackage{longtable}
-
+\usepackage{listings}
 \usepackage{float} % Float tables
 
 \usepackage[usenames,dvipsnames]{xcolor} % Color
@@ -51,6 +51,33 @@
 \pgfplotsset{compat=newest}
 \pgfplotsset{width=7.5cm}
 \pgfkeys{/pgf/number format/1000 sep={}}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
 
 \begin{document}
 
@@ -191,6 +218,7 @@ Different methodologies are used to select the first users to get the new functi
 \listoftables
 
 \listoffigures
+\lstlistoflistings
 
 %----------------------------------------------------------------------------------------
 %	TESIS
@@ -206,15 +234,13 @@ Different methodologies are used to select the first users to get the new functi
 
 \include{Chapters/1.Rev}
 
-\include{Chapters/2.Esp}
+\include{Chapters/2.Mod}
 
-\include{Chapters/3.Mod}
+\include{Chapters/3.Metodologia}
 
-\include{Chapters/4.Mex}
+\include{Chapters/4.Resultados}
 
-\include{Chapters/5.Resultados}
-
-\include{Chapters/6.Conc}
+\include{Chapters/5.Conc}
 
 
 %----------------------------------------------------------------------------------------
